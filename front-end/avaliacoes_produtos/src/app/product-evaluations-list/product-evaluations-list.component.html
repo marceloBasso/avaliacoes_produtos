@@ -1,0 +1,25 @@
+<app-header title="Avaliação de produto" [buttonLink]="'/produtos/' + product_id + '/avaliacoes/novo'" buttonText="Inserir nova"></app-header>
+<div class="row mt-3">
+    <div class="col-12">
+        <app-alert></app-alert>
+        <table class="table table-bordered">
+            <tr>
+                <th>ID - Produto</th>
+                <th>Nome</th>
+                <th>Nota</th>
+                <th>Ações</th>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{ item.product_id }} - {{ item.product_name }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.grade }}</td>
+                <td>
+                    <div class="btn-group">
+                        <a style="width:100px !important;" [routerLink]="'/produtos/' + product_id + '/avaliacoes/' + item.id" class="btn btn-success">Editar</a>
+                        <button style="width:100px !important;" class="btn btn-danger" (click)="delete(item.id)">Excluir</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
